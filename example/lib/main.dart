@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<File> _files;
+  List<File>? _files;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     List<File> files = [];
     for (Asset asset in assets) {
       final filePath =
-          await FlutterAbsolutePath.getAbsolutePath(asset.identifier);
+          await FlutterAbsolutePath.getAbsolutePath(asset.identifier ?? "");
       files.add(File(filePath));
     }
 
